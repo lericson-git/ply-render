@@ -2,41 +2,66 @@
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <title>Rendering test</title>
+        <title>Render Point Cloud</title>
         <style></style>
     </head>
 
     <body>
-        <canvas id="theCanvas" width="1200", height="800">
+        <canvas id="theCanvas" width = "1400" height = "900">
             Please use a browser that supports "canvas"
         </canvas>
 
-        <script src="three.js"></script>
-        <script src="cs336util.js"></script>
+        <script src="js/three.js"></script>
+        <script src="js/cs336util.js"></script>
 
-        <script src="plyDriver.js"></script>
+        <script src="js/plyDriver.js"></script>
 
         <script></script>
 
         <div style="position: absolute; top: 0; right: 0; margin: 15px; background-color: #C0C0C07D; border-radius: 5px; padding: 15px;">
             <h3>Point Cloud Expirements</h3>
-            <input id="fileinput" type="file"/><br/>
 
-            <span><label>Verticies: </label><input type="range" min="1" max="100" value="100" id="verticesSlider"><br/></span>
+            <div style="width: auto; margin: 5px; background-color: #A7A7A77D; border-radius: 5px; padding: 10px;">
+                <h4 style="margin-top: 10px; margin-bottom: 10px;">Scene settings:</h4>
 
+                <input id="fileinput" type="file" style="margin-top: 10px; margin-bottom: 10px;"/><br/>
 
-            <span>
-                <button id="implodeButton" onclick="effects.implode = !effects.implode;">Implode</button>
-                <input type="range" min="1" max="100" value="50" id="implodeSlider" onchange="effectsProperties.implode = this.value/2000">
-            </span><br/>
-            <span>
-                <button id="jiggleButton" onclick="effects.jiggle = !effects.jiggle;">Jiggle</button>
-                <input type="range" min="1" max="100" value="40" id="jiggleSlider" onchange="effectsProperties.jiggle = this.value/700">
-            </span><br/>
+                <span style="margin-top: 10px; margin-bottom: 10px;"><label>Verticies: </label><input type="range" min="1" max="100" value="100" id="verticesSlider"><br/></span>
+                <span><label>Point Size: </label><input type="range" min="0" max="10" value="5" id="pointSizeSlider" onchange="pointSize = this.value"><br/></span>
+
+            </div>
+
+            <div style="width: auto; margin: 5px; background-color: #A7A7A77D; border-radius: 5px; padding: 10px;">
+                <h4 style="margin-top: 10px; margin-bottom: 10px;">Effects:</h4>
+
+                <span>
+                    <button id="implodeButton" onclick="effects.implode = !effects.implode;">Implode</button>
+                    <input type="range" min="1" max="100" value="50" id="implodeSlider" onchange="effectsProperties.implode = this.value/2000">
+                </span><br/>
+                <span>
+                    <button id="jiggleButton" onclick="effects.jiggle = !effects.jiggle;">Jiggle</button>
+                    <input type="range" min="1" max="100" value="40" id="jiggleSlider" onchange="effectsProperties.jiggle = this.value/700">
+                </span><br/>
+
+                <span>
+                    <button id="fallButton" onclick="effects.fall = !effects.fall;">Fall</button>
+                    <input type="range" min="1" max="100" value="40" id="fallSlider" onchange="effectsProperties.fall = this.value/4000">
+                </span><br/>
+
+                <span>
+                    <button id="explodeButton" onclick="effects.explode = !effects.explode;">Explode</button>
+                    <input type="range" min="1" max="100" value="50" id="explodeSlider" onchange="effectsProperties.explode = this.value/2000">
+                </span><br/>
+
+                <span>
+                    <button id="dissolveButton" onclick="effects.dissolve = !effects.dissolve;">Dissolve</button>
+                    <input type="range" min="1" max="100" value="30" id="dissolveSlider" onchange="effectsProperties.dissolve = this.value / 2">
+                </span><br/>
+            </div>
+            
 
             <button id="resetButton" onclick="clearEffects()">Reset</button>
         </div>
-        
 
 
     </body>
