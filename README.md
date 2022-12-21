@@ -3,3 +3,4 @@ Simple WebGL implementation of rendering a PLY file.
 Driver file parses PLY data (only supports ascii versions right now) and then renders them with some effects to try out in main.html
 
 ![Page](https://github.com/[lericson-git]/[ply-render]/blob/[main]/exampleDisplay.png?raw=true)
+![Image](https://github.com/lericson-git/ply-render/blob/main/exampleDisplay.png)
