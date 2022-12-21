@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Rendering test</title>
+        <style></style>
+    </head>
+
+    <body>
+        <canvas id="theCanvas" width="1200", height="800">
+            Please use a browser that supports "canvas"
+        </canvas>
+
+        <script src="three.js"></script>
+        <script src="cs336util.js"></script>
+
+        <script src="plyParserDriver.js"></script>
+
+        <script></script>
+
+        <div style="position: absolute; top: 0; right: 0; margin: 15px; background-color: #C0C0C07D; border-radius: 5px; padding: 15px;">
+            <h3>Point Cloud Expirements</h3>
+            <input id="fileinput" type="file"/><br/>
+
+            <span><label>Verticies: </label><input type="range" min="1" max="100" value="100" id="verticesSlider"><br/></span>
+
+
+            <span>
+                <button id="implodeButton" onclick="effects.implode = !effects.implode;">Implode</button>
+                <input type="range" min="1" max="100" value="50" id="implodeSlider" onchange="effectsProperties.implode = this.value/2000">
+            </span><br/>
+            <span>
+                <button id="jiggleButton" onclick="effects.jiggle = !effects.jiggle;">Jiggle</button>
+                <input type="range" min="1" max="100" value="40" id="jiggleSlider" onchange="effectsProperties.jiggle = this.value/700">
+            </span><br/>
+
+            <button id="resetButton" onclick="clearEffects()">Reset</button>
+        </div>
+        
+
+
+    </body>
+</html>
